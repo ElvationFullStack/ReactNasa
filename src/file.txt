@@ -1,0 +1,28 @@
+
+
+
+
+function findLargetSubStr(str){
+    let maxSubset=0
+    let counter=0
+    var subStrAccurances=new Set()
+    for(let i=0;i<str.length;i++){
+        if(subStrAccurances.has(str[i])){
+            maxSubset=maxSubset>counter?maxSubset:counter
+            subStrAccurances=new Set()
+        }else{
+
+            subStrAccurances.add(str[i])
+            counter++
+        }
+        return maxSubset
+
+
+
+
+    }
+
+    return maxSubset
+
+
+}
