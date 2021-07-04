@@ -1,11 +1,37 @@
-import {React,useEffect,useState} from 'react'
+import { React, useEffect, useState, Link } from 'react'
+import MiniCards from './MiniCards'
+function Favorites(props) {
 
-function Favirotes() {
+    const [favirote, setFavirote] = useState([])
+
+    useEffect(() => {
+
+        props.getFavouretes()
+
+        setFavirote(props.fav)
+
+    })
+
     return (
-        <div>
-            faverotes
+
+        <div className="search-display">
+            {
+                favirote.map((i, indx) => {
+                    return (
+
+
+
+                        <MiniCards deleteFromFaviroutes={props.deleteFromFaviroutes} key={indx} item={i}></MiniCards>
+
+
+                    )
+                })
+
+
+            }
         </div>
+
     )
 }
 
-export default Favirotes
+export default Favorites

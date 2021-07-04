@@ -28,6 +28,7 @@ router.post('/images', function (req, res) {
 })
 
 router.delete('/images', function (req, res) {
+    console.log(req.body)
     favirouteId = req.body._id
     Faviroutes.findByIdAndDelete(favirouteId, function (err, rese) {
         res.statusCode = 204

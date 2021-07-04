@@ -9,10 +9,9 @@ export default function Home() {
 
 
     useEffect(() => {
-        const res = axios.get("https://api.nasa.gov/planetary/apod?api_key=nZSfzro7xhbmgHS95jj6Ob66bc8Irc4xfayYTJIm")
+        const res = axios.get(apod_api)
 
         res.then(response => {
-            console.log(response.data)
             setApodData(response.data)
         })
 

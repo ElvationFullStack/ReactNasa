@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const FaviroutesSchema = new Schema({
     title : String,
-    imgUrl  : String,
+    img  : String,
     description : String 
 })
 

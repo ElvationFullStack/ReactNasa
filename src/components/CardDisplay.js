@@ -52,7 +52,7 @@ function CardDisplay(props) {
 
 
 
-    console.log(props)
+    // console.log(props)
     return (
     <Card className={classes.root}>
       <CardHeader
@@ -66,12 +66,12 @@ function CardDisplay(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={props.apod.title}
-        subheader={props.apod.date}
+        title={props.apod.title||"notFount"}
+        subheader={props.apod.date ||"notFount"}
       />
       <CardMedia
         className={classes.media}
-        image={props.apod.hdurl}
+        image={props.apod.hdurl||"notFount"}
         title="Paella dish"
       />
       <CardContent>

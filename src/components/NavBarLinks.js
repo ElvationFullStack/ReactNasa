@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from '../Home'
 import Search from './Search'
-import Favirotes from './Favirotes'
+import Favorites from './Favirotes';
 
 import { Route, Link, Switch } from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
@@ -10,6 +10,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Breadcrumbs } from '@material-ui/core';
+import DetailFav from './DetailFav';
+import { matchPath } from "react-router";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,12 +27,13 @@ const useStyles = makeStyles((theme) => ({
 
 function handleClick(event) {
     event.preventDefault();
-    console.info('You clicked a breadcrumb.');
+    // console.info('You clicked a breadcrumb.');
 }
 
 function NavBarLinks(props) {
-
+    // console.log(props.getFavouretes().then((res)=>console.log(res,"insideNAbarlimf")))
     const classes = useStyles();
+  
 
     return (
         <div>
@@ -51,12 +54,23 @@ function NavBarLinks(props) {
                 </Breadcrumbs>
             }
 
-            <Switch>
-                <Route path="/home" component={Home} />
-                <Route path="/search" component={Search} />
-                <Route path="/favirotes" component={Favirotes} />
+         
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/search" >
+                    <Search addToFaviroutes={props.addToFaviroutes} ></Search>
+                </Route>
+               
+                <Route exact path="/favirotes" >
+                    <Favorites getFavouretes={props.getFavouretes} fav={props.fav} deleteFromFaviroutes={props.deleteFromFaviroutes}></Favorites>
+                </Route>
 
-            </Switch>
+                <Route  path="/favirotes/:_id" exact exact render={({match})=>
+            
+                <DetailFav getFavouretes={props.getFavouretes} match ={match} fav={props.fav}  fav={props.fav} ></DetailFav>
+            }>
+             
+                </Route>
+          
 
         </div>
     )

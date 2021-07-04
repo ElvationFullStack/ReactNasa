@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 console.log(path.join(__dirname))
 app.use('/', api)
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    // res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 app.listen(process.env.PORT|| port, function () {
     console.log("Server up and running on port", port)

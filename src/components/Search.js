@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Search() {
+export default function Search(props) {
     const classes = useStyles();
     const [searchText, setSearchText] = useState("")
     const [itemsSearched, setItemsSearched] = useState([])
@@ -69,20 +69,11 @@ export default function Search() {
                 }}
             />
             {
-                // <Button
-                //     variant="contained"
-                //     color="primary"
-                //     size="small"
-                //     className={classes.button}
-                //     startIcon={<SaveIcon />}
-                // >
-                //     Save
-                // </Button>
-
+               
                 <div className="search-display">
                     {itemsSearched.map((i,indx) => {
 
-                        return <MiniCards key={indx} item={i}></MiniCards>
+                        return <MiniCards showAdd={true}   addToFaviroutes={props.addToFaviroutes} key={indx} item={i}></MiniCards>
                     })}
                 </div>
 
