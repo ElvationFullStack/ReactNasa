@@ -31,7 +31,6 @@ function handleClick(event) {
 }
 
 function NavBarLinks(props) {
-    // console.log(props.getFavouretes().then((res)=>console.log(res,"insideNAbarlimf")))
     const classes = useStyles();
   
 
@@ -47,9 +46,9 @@ function NavBarLinks(props) {
                         <SearchIcon className={classes.icon} />
                         search
                     </Link>
-                    <Link to="/favirotes">
+                    <Link to="/favorite">
                         <FavoriteIcon className={classes.icon} />
-                        faviroutes
+                        Favorites
                     </Link>
                 </Breadcrumbs>
             }
@@ -57,16 +56,16 @@ function NavBarLinks(props) {
          
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/search" >
-                    <Search addToFaviroutes={props.addToFaviroutes} ></Search>
+                    <Search addToFavorites={props.addToFavorites} ></Search>
                 </Route>
                
-                <Route exact path="/favirotes" >
-                    <Favorites getFavouretes={props.getFavouretes} fav={props.fav} deleteFromFaviroutes={props.deleteFromFaviroutes}></Favorites>
+                <Route exact path="/favorite" >
+                    <Favorites getFavorite={props.getFavorite} fav={props.fav} deleteFromFavorites={props.deleteFromFavorites}></Favorites>
                 </Route>
 
-                <Route  path="/favirotes/:_id" exact exact render={({match})=>
+                <Route  path="/favorite/:_id" exact exact render={({match})=>
             
-                <DetailFav getFavouretes={props.getFavouretes} match ={match} fav={props.fav}  fav={props.fav} ></DetailFav>
+                <DetailFav getFavorites={props.getFavorites} match ={match} fav={props.fav}  fav={props.fav} ></DetailFav>
             }>
              
                 </Route>

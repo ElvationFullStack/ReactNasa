@@ -2,13 +2,14 @@ import { React, useEffect, useState, Link } from 'react'
 import MiniCards from './MiniCards'
 function Favorites(props) {
 
-    const [favirote, setFavirote] = useState([])
+    const [favorite, setFavorite] = useState([])
+
 
     useEffect(() => {
 
-        props.getFavouretes()
+        props.getFavorite()
 
-        setFavirote(props.fav)
+        setFavorite(props.fav)
 
     })
 
@@ -16,12 +17,10 @@ function Favorites(props) {
 
         <div className="search-display">
             {
-                favirote.map((i, indx) => {
+                favorite.map((i, indx) => {
                     return (
 
-
-
-                        <MiniCards deleteFromFaviroutes={props.deleteFromFaviroutes} key={indx} item={i}></MiniCards>
+                        <MiniCards deleteFromFavorites={props.deleteFromFavorites} key={indx} item={i}></MiniCards>
 
 
                     )

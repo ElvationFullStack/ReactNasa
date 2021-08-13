@@ -3,8 +3,10 @@ import NavBarLinks from './components/NavBarLinks'
 
 function NavBar(props) {
     return (
-            <NavBarLinks addToFaviroutes={props.addToFaviroutes} getFavouretes={props.getFavouretes} fav={props.fav} 
-            deleteFromFaviroutes={props.deleteFromFaviroutes}>
+            <NavBarLinks addToFavorites={props.addToFavorites} getFavorite={props.getFavorite} fav={props.fav} 
+           
+
+            deleteFromFavorites={props.deleteFromFavorites}>
             </NavBarLinks>
     )
 }

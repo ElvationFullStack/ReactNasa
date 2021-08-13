@@ -36,7 +36,7 @@ export default function Search(props) {
             const { items } = response.data.collection
 
             console.log(items)
-            const filtterd = items.map(item => {
+            const filtered= items.map(item => {
                 return {
                     title: item.data[0].title,
                     img: item.links === undefined ? "not found" : item.links[0].href,
@@ -44,8 +44,7 @@ export default function Search(props) {
 
                 }
             }, [searchText])
-            setItemsSearched(filtterd)
-            console.log(filtterd)
+            setItemsSearched(filtered)
         })
 
 
@@ -73,7 +72,7 @@ export default function Search(props) {
                 <div className="search-display">
                     {itemsSearched.map((i,indx) => {
 
-                        return <MiniCards showAdd={true}   addToFaviroutes={props.addToFaviroutes} key={indx} item={i}></MiniCards>
+                        return <MiniCards showAdd={true}   addToFavorites={props.addToFavorites} key={indx} item={i}></MiniCards>
                     })}
                 </div>
 
